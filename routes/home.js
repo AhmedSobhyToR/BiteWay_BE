@@ -8,7 +8,7 @@ const getTrendyProducts = '/getTrendyProducts'
 router.get(`${apiLink}${getCategories}`, async (req, res) => {
   try {
     const query = `SELECT * 
-    FROM [db14020].[dbo].[Categories]`
+    FROM [db27852].[dbo].[Categories]`
     const result = await sql.query(query);
     res.json(result.recordset);
   } catch (err) {
@@ -19,12 +19,17 @@ router.get(`${apiLink}${getCategories}`, async (req, res) => {
 router.get(`${apiLink}${getTrendyProducts}`, async (req, res) => {
   try {
     const query = `SELECT * 
-    FROM [db14020].[dbo].[Products]`
+    FROM [db27852].[dbo].[Products]`
     const result = await sql.query(query);
     res.json(result.recordset);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+
+router.get("/api/v1/hello", async (req, res) => {
+    res.send("hello world");
 });
 
 
